@@ -6,16 +6,12 @@ def create_tables():
 
     commands = [
         """
-        CREATE TABLE IF NOT EXISTS contacts (
-            id SERIAL PRIMARY KEY,
-            first_name VARCHAR(50) NOT NULL,
-            last_name VARCHAR(50) NOT NULL
-        );
-        """,
-        """
-        CREATE TABLE IF NOT EXISTS phone_numbers (
-            contact_id INT REFERENCES contacts(id) ON DELETE CASCADE,
-            phone_number VARCHAR(20) NOT NULL UNIQUE
+        CREATE TABLE IF NOT EXISTS user_score (
+        user_id INTEGER PRIMARY KEY,
+        score INTEGER,
+        length INTEGER,
+        level_num INTEGER,
+        FOREIGN KEY (user_id) REFERENCES users(id)
         );
         """
     ]
